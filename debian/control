@@ -1,0 +1,15 @@
+Source: todo
+Section: utils
+Priority: optional
+Maintainer: Javier P.L. <chilicuil@ubuntu.com>
+Build-Depends: debhelper (>= 7.0.5), bash-completion
+Standards-Version: 3.9.4
+Homepage: http://todotxt.com/
+Vcs-git: git://github.com/ginatrapani/todo.txt-cli.git
+Vcs-Browser: https://github.com/ginatrapani/todo.txt-cli
+
+Package: todo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Simple and extensible shell script for managing todo.txt files.
+ A simple and extensible shell script for managing your todo.txt file.

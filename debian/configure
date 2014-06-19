@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+mv todo.cfg config
+mv todo.sh todo
+
+# vim: set ts=8 sw=4 tw=0 ft=sh : 
