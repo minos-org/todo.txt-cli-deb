@@ -2,7 +2,9 @@
 
 set -e
 
-mv todo.cfg config
+mkdir debian/todo.bash-completion.d/
+mv debian/todo.bash-completion debian/todo.bash-completion.d/todo
+mv debian/todo.cfg config
 mv todo.sh todo
 
 # vim: set ts=8 sw=4 tw=0 ft=sh : 

@@ -8,13 +8,14 @@
 
 DEB_VERSION:=$(shell dpkg-parsechangelog -n1 | sed -n '/^Version: /s///p')
 DEB_UPSTREAM_VERSION:=$(shell DEB_VERSION=${DEB_VERSION}; echo $${DEB_VERSION%-*})
+DEB_UPSTREAM_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*:})
 DEB_MASTER_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*+git})
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
 %:
-	dh $@ --with bash_completion
+	dh $@
 
 override_dh_auto_configure:
 	./debian/configure
@@ -22,12 +23,18 @@ override_dh_auto_configure:
 override_dh_auto_install:
 	
 
+override_dh_auto_clean:
+	
+
+override_dh_auto_test:
+	
+
 get-orig-source:
 	rm -rf debian/tmp; mkdir debian/tmp
 	cd debian/tmp; wget https://github.com/ginatrapani/todo.txt-cli/archive/${DEB_MASTER_VERSION}.tar.gz
 	cd debian/tmp; tar xvzf ${DEB_MASTER_VERSION}.tar.gz
-	cd debian/tmp; mv todo.txt-cli- todo-${DEB_UPSTREAM_VERSION}
-	cd debian/tmp; tar cvJf todo_${DEB_UPSTREAM_VERSION}.orig.tar.xz todo-${DEB_UPSTREAM_VERSION}
+	cd debian/tmp; mv todo.txt-cli-* todo-${DEB_UPSTREAM_VERSION}
+	cd debian/tmp; tar --force-local -cvJf todo_${DEB_UPSTREAM_VERSION}.orig.tar.xz todo-${DEB_UPSTREAM_VERSION}
 	mv debian/tmp/todo_${DEB_UPSTREAM_VERSION}.orig.tar.xz .
 	mv debian/tmp/todo-${DEB_UPSTREAM_VERSION} .
 	rm -rf debian/tmp
