@@ -1,18 +1,20 @@
 Debian packaging for todo.txt-cli
 ---------------------------------
 
-A quick summary in how build the Debian packaging:
+Steps to build this package:
 
- $ git clone --dept=1 https://github.com/minos-org/todo.txt-cli-deb
- $ cd todo.txt-cli-deb
- $ dch -i #insert proper upstream version (1:$(date +%Y%m%d%H%M)+githash-minos)
- $ debian/rules get-orig-source
- $ mv debian todo-*
- $ cd todo-*
+```
+$ git clone --dept=1 https://github.com/minos-org/todo.txt-cli-deb
+$ cd todo.txt-cli-deb
+$ dch -i #insert proper upstream version (1:$(date +%Y%m%d%H%M)+git7digitsHash-minos)
+$ debian/rules get-orig-source
+$ mv debian todo-*
+$ cd todo-*
 
- [ Make here some adaptations, like updating debian/patches, if needed ]
- [ add more details if required, $EDITOR debian/changelog ]
+[ Optional, make some adaptations, like updating debian/patches, if needed ]
+[ document additional changes if required, $EDITOR debian/changelog ]
 
- $ debuild -S
+$ debuild -S
 
- [ Build .dsc || Upload .changes file ]
+[ Build .dsc (pbuilder) || Upload .changes file (dput) ]
+```
