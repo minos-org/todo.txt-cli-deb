@@ -3,10 +3,10 @@ todo (1:201608161143+gitt837ce22-minos) precise; urgency=low
   * add trusty/xenial packages into lp recipe:
     https://code.launchpad.net/~minos-archive/+recipe/todo.txt-cli
 
- -- Javier P.L. <chilicuil@ubuntu.com>  Tue, 16 Aug 2016 11:43:14 -0500
+ -- Javier López <m@javier.io>  Tue, 16 Aug 2016 11:43:14 -0500
 
 todo (1:201406122320+git837ce22-minos) precise; urgency=low
 
   * New version
 
- -- Javier P.L. <chilicuil@ubuntu.com>  Thu, 12 Jun 2014 23:20:38 -0500
+ -- Javier López <m@javier.io>  Thu, 12 Jun 2014 23:20:38 -0500
